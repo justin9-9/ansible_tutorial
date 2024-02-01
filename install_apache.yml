@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    ansible.builtin.yum:
+     update_cache: yes
+
+  - name: install httpd package
+    ansible.builtin.yum:
+      name: httpd
+      state: latest
+
+  - name: add php support for apache -- this is in php itself for RHEL
+    ansible.builtin.yum:
+      name: php
+      state: latest

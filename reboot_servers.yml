@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    ansible.builtin.reboot:
+      msg: "Rebooting machine in 5 seconds"

@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    ansible.builtin.yum:
+     update_cache: yes
+
+  - name: update all the installed packages
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
